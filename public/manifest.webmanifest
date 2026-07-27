@@ -1,0 +1,17 @@
+{
+  "name": "Guest check-in",
+  "short_name": "Check-in",
+  "description": "Find your name, check in, and discover your seat.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f6f3ec",
+  "theme_color": "#0f3d34",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

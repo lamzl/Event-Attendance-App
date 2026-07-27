@@ -1,0 +1,4 @@
+guest_id,name,group,seat_number,table,status,checked_in,checked_in_at,check_in_request_id,checked_in_source
+gst_001,Aisha Tan,Family,8,1,active,false,,,
+gst_002,Jordan Lee,Lee family,6,7,active,false,,,
+gst_003,Jordan Lee,University friends,4,9,active,false,,,
