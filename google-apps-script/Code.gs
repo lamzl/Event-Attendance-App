@@ -506,3 +506,41 @@ function safeEqual_(first, second) {
 
   return mismatch === 0;
 }
+
+function forceFillGuestIds() {
+  var spreadsheet = SpreadsheetApp.openById(
+    "1VgDMhtC8DibUXuv3AUw4862MU2frjFw5MtFq6CHNlDY"
+  );
+
+  var sheet = spreadsheet.getSheetByName("Guests");
+
+  if (!sheet) {
+    throw new Error("The Guests worksheet tab was not found.");
+  }
+
+  var lastRow = sheet.getLastRow();
+
+  if (lastRow < 2) {
+    throw new Error("No guest rows were found.");
+  }
+
+  var rows = sheet.getRange(2, 1, lastRow - 1, 2).getDisplayValues();
+  var updated = 0;
+
+  var ids = rows.map(function (row) {
+    var existingId = String(row[0] || "").trim();
+    var name = String(row[1] || "").trim();
+
+    if (name && !existingId) {
+      updated += 1;
+      return ["gst_" + Utilities.getUuid().replace(/-/g, "")];
+    }
+
+    return [existingId];
+  });
+
+  sheet.getRange(2, 1, ids.length, 1).setValues(ids);
+  SpreadsheetApp.flush();
+
+  console.log("Added IDs to " + updated + " guest rows.");
+}
