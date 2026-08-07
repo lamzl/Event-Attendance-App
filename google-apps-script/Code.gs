@@ -17,7 +17,6 @@ var REQUIRED_HEADERS = [
   "guest_id",
   "name",
   "group",
-  "seat_number",
   "table",
   "status",
   "checked_in",
@@ -111,8 +110,17 @@ function setupGuestSheet() {
     .setFontWeight("bold")
     .setBackground("#0f3d34")
     .setFontColor("#ffffff");
-  sheet.getRange("D:E").setNumberFormat("@");
-  sheet.getRange("H:H").setNumberFormat("yyyy-mm-dd hh:mm:ss");
+  sheet
+    .getRange(2, headerMap.table + 1, sheet.getMaxRows() - 1, 1)
+    .setNumberFormat("@");
+  sheet
+    .getRange(
+      2,
+      headerMap.checked_in_at + 1,
+      sheet.getMaxRows() - 1,
+      1,
+    )
+    .setNumberFormat("yyyy-mm-dd hh:mm:ss");
   sheet.autoResizeColumns(1, REQUIRED_HEADERS.length);
 
   console.log("Guest sheet is ready: " + spreadsheet.getUrl());
@@ -222,13 +230,12 @@ function checkInGuest_(config, guestId, requestId) {
       );
     }
 
-    var seatNumber = cleanText_(row[headerMap.seat_number], 40);
     var table = cleanText_(row[headerMap.table], 40);
 
-    if (!seatNumber && !table) {
+    if (!table) {
       throw apiError_(
-        "SEAT_NOT_ASSIGNED",
-        "A seat has not been assigned yet. Please see a host for help.",
+        "TABLE_NOT_ASSIGNED",
+        "A table has not been assigned yet. Please see a host for help.",
       );
     }
 
@@ -257,7 +264,6 @@ function checkInGuest_(config, guestId, requestId) {
       guest: {
         id: cleanGuestId,
         name: cleanText_(row[headerMap.name], 120),
-        seatNumber: seatNumber,
         table: table,
         checkedInAt: checkedInAt,
       },

@@ -11,7 +11,6 @@ different worksheet name, use that tab instead.
 2. Enter the guest's details:
    - `name` — guest's full name
    - `group` — optional family or group description
-   - `seat_number` — assigned seat
    - `table` — assigned table
    - `status` — enter `active`
 3. Leave these cells blank:
@@ -27,8 +26,8 @@ The app should now display the new guest.
 
 ## Edit a guest
 
-Edit the guest's `name`, `group`, `seat_number`, `table`, or `status` directly
-in the spreadsheet.
+Edit the guest's `name`, `group`, `table`, or `status` directly in the
+spreadsheet.
 
 Do not change `guest_id`. The app uses it to identify the correct guest.
 

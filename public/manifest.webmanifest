@@ -1,7 +1,7 @@
 {
-  "name": "Guest check-in",
+  "name": "Participant check-in",
   "short_name": "Check-in",
-  "description": "Find your name, check in, and discover your seat.",
+  "description": "Find your name, check in, and go to your table.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f6f3ec",

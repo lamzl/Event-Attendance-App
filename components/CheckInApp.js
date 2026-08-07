@@ -38,7 +38,7 @@ function makeRequestId() {
 }
 
 function Progress({ step }) {
-  const labels = ["Find name", "Confirm", "Your seat"];
+  const labels = ["Your name", "Check-in", "Your table"];
 
   return (
     <ol className="progress" aria-label={`Step ${step} of 3`}>
@@ -266,18 +266,18 @@ function SuccessState({ result, eventName, onAnotherGuest, focusRef }) {
       </p>
       <h1 id="success-title">
         {alreadyCheckedIn
-          ? "You’re already checked in!"
+          ? "You're already checked in!"
           : "You’re all checked in!"}
       </h1>
       <p className="success-copy">
         {alreadyCheckedIn
-          ? "Your attendance was already recorded. Here’s your seat again."
+          ? "Your attendance has been confirmed. Here’s your table number again."
           : `Welcome to ${eventName}, ${result.guest.name}. Your attendance has been recorded.`}
       </p>
 
       <div className="seat-card">
         <div className="seat-card__accent" aria-hidden="true" />
-        <span className="seat-card__label">Your place for the evening</span>
+        <span className="seat-card__label">Your table for the event</span>
         <strong>{result.guest.seatLabel}</strong>
         <span className="seat-card__name">{result.guest.name}</span>
       </div>
@@ -504,7 +504,7 @@ export function CheckInApp({ event }) {
           </span>
           <span>
             <strong>{event.name}</strong>
-            <small>Guest welcome</small>
+            <small>Welcome!</small>
           </span>
         </a>
         <span className="check-in-pill">
@@ -517,12 +517,11 @@ export function CheckInApp({ event }) {
         <section className="event-intro" aria-labelledby="event-heading">
           <p className="eyebrow">
             <SparkleIcon size={15} />
-            So glad you’re here
+            HDB Senior Management Advance 2026
           </p>
-          <h1 id="event-heading">Welcome. Let’s find your seat.</h1>
+          <h1 id="event-heading">Welcome. Let’s find your table.</h1>
           <p>
-            Find your name in the guest list, confirm it’s you, and we’ll show
-            you where to go.
+            Please locate your name on the participant list to confirm your attendance. Your table number will be displayed next. 
           </p>
 
           <div className="event-meta" aria-label="Event details">

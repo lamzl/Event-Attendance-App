@@ -42,19 +42,18 @@ test("the public guest item does not expose a seat or attendance data", () => {
   assert.equal("checkedInAt" in item, false);
 });
 
-test("a check-in result must include a valid guest and assigned seat", () => {
+test("a check-in result supports a table assignment without a seat number", () => {
   assert.deepEqual(
     sanitizeCheckInResult({
       id: "gst_valid",
       name: "Aisha Tan",
       table: "1",
-      seatNumber: "8",
       checkedInAt: "2026-07-27T12:00:00.000Z",
     }),
     {
       id: "gst_valid",
       name: "Aisha Tan",
-      seatLabel: "Table 1 · Seat 8",
+      seatLabel: "Table 1",
     },
   );
 

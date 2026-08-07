@@ -12,7 +12,6 @@ test("the Sheets adapter contains every required stable column", () => {
     "guest_id",
     "name",
     "group",
-    "seat_number",
     "table",
     "status",
     "checked_in",
@@ -24,6 +23,10 @@ test("the Sheets adapter contains every required stable column", () => {
   for (const header of headers) {
     assert.match(source, new RegExp(`"${header}"`));
   }
+
+  const requiredHeaders = source.match(/var REQUIRED_HEADERS = \[([\s\S]*?)\];/);
+  assert.ok(requiredHeaders);
+  assert.doesNotMatch(requiredHeaders[1], /"seat_number"/);
 });
 
 test("attendance writes are protected by a script lock", () => {
