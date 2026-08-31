@@ -519,9 +519,9 @@ export function CheckInApp({ event }) {
             <SparkleIcon size={15} />
             HDB Senior Management Advance 2026
           </p>
-          <h1 id="event-heading">Welcome. Let’s find your table.</h1>
+          <h1 id="event-heading">Welcome.</h1>
           <p>
-            Please locate your name on the participant list to confirm your attendance. Your table number will be displayed next. 
+            Please find and select your name from the list below to check in. Your assigned table number will be displayed next.
           </p>
 
           <div className="event-meta" aria-label="Event details">
