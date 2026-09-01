@@ -521,7 +521,7 @@ export function CheckInApp({ event }) {
           </p>
           <h1 id="event-heading">Welcome.</h1>
           <p>
-            Please find and select your name from the list below to check in. Your assigned table number will be displayed next.
+            Please find and select your name from the list above to check in. Your assigned table number will be displayed next.
           </p>
 
           <div className="event-meta" aria-label="Event details">
