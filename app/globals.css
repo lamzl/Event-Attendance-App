@@ -1267,14 +1267,6 @@ footer {
     padding-block: 30px 28px;
   }
 
-  .check-in-card {
-    grid-row: 1;
-  }
-
-  .event-intro {
-    grid-row: 2;
-  }
-
   .event-intro h1 {
     font-size: clamp(40px, 12vw, 54px);
   }
